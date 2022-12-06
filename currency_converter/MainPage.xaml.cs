@@ -1,24 +1,23 @@
-﻿namespace currency_converter;
+﻿
+using System.Diagnostics;
+
+namespace currency_converter;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
 
 	public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private void OnBtnClicked(object sender, EventArgs e)
 	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		leiOutput.Text = $"{Math.Round(Convert.ToInt32(userInput.Text) * 4.91, 2, MidpointRounding.AwayFromZero)} Lei";
+		
+		SemanticScreenReader.Announce(leiOutput.Text);
 	}
+
 }
+
 
